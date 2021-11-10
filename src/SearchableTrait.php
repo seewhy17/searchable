@@ -336,7 +336,8 @@ trait SearchableTrait
      */
     protected function getCaseCompare($column, $compare, $relevance) {
         if ($this->isPostgresqlDatabase()) {
-            $field = "LOWER(" . $column . ") " . $compare . " ?";
+            $field = 'LOWER(' . $column . ') ' . $compare . ' ?';
+            // $field = "LOWER(" . $column . ") " . $compare . " ?";
             return '(case when ' . $field . ' then ' . $relevance . ' else 0 end)';
         }
 
